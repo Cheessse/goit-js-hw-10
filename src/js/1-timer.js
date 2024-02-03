@@ -12,6 +12,7 @@ const userDays = document.querySelector('[data-days]');
 const userHours = document.querySelector('[data-hours]');
 const userMinutes = document.querySelector('[data-minutes]');
 const userSeconds = document.querySelector('[data-seconds]');
+const userInput = document.querySelector('#datetime-picker');
 
 let timerInterval;
 
@@ -36,6 +37,9 @@ const options = {
 };
 
 function startTimer() {
+  startBtn.disabled = true;
+  userInput.disabled = true;
+
   timerInterval = setInterval(updateTimerDisplay, 1000);
 }
 
@@ -55,6 +59,9 @@ function stopTimer() {
     userSeconds.textContent = '00';
 
     timerInterval = null;
+
+    startBtn.disabled = false;
+    userInput.disabled = false;
   }
 }
 
